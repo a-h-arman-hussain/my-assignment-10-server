@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
-// require("dotenv").config();
+require("dotenv").config();
 const app = express();
 const port = 4000;
 // process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
@@ -9,7 +9,7 @@ const port = 4000;
 app.use(cors());
 app.use(express.json());
 
-const uri = `mongodb+srv://online-learning-platform:epbVPU2f2IEPSTJh@cluster0.xrhyseu.mongodb.net/?appName=Cluster0`;
+const uri = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.xrhyseu.mongodb.net/?appName=Cluster0`;
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
